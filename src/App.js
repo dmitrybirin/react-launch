@@ -7,7 +7,6 @@ const Title = styled.h1`
 	text-align: center;
 	color: blue;
 `
-
 const SubTitle = styled.h3`
 	font-size: 0.8em;
 	text-align: center;
