@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 import { hot } from 'react-hot-loader'
 import styled from 'styled-components'
 
 const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: blue;
+	font-size: 1.5em;
+	text-align: center;
+	color: blue;
 `
 
 const SubTitle = styled.h3`
@@ -14,12 +14,12 @@ const SubTitle = styled.h3`
 `
 
 const App = () => {
-  return (
-    <div>
-	  <Title>This is styled Title!</Title>
-	  <SubTitle>Made with React</SubTitle>
-    </div>
-  );
-};
+	return (
+		<div>
+			<Title>This is styled Title!</Title>
+			<SubTitle>Made with React</SubTitle>
+		</div>
+	)
+}
 
 export default hot(module)(App)
