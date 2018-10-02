@@ -5,7 +5,7 @@ This repo has React **barebones** with
 -   Webpack 4 + Babel
 -   Hot Reload
 -   Styled Components
--   ESLint
+-   ESLint + Prettier + Lint Staged
 
 ### Getting started
 
