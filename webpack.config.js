@@ -33,4 +33,9 @@ module.exports = {
 		contentBase: './dist',
 		hot: true,
 	},
+	resolve: {
+		alias: {
+			'react-dom': '@hot-loader/react-dom',
+		},
+	},
 }
