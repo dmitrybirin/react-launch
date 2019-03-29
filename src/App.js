@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import { Box, Clock, Stack, Text } from 'grommet';
+import { Clock } from 'grommet'
 import { hot } from 'react-hot-loader'
 import styled from 'styled-components'
 import { ReactLogo } from 'styled-icons/fa-brands'
@@ -36,6 +36,7 @@ const App = () => {
 
 	return (
 		<Container>
+			<Clock type="digital" />
 			<Title>This is styled Title!!</Title>
 			<Logo size={50} />
 			<SubTitle>Made with React</SubTitle>
