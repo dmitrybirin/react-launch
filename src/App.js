@@ -47,7 +47,7 @@ const App = () => {
 		const ss = `${secondsLeft > 0 ? secondsLeft % 60 : 0}`.padStart(2, '0')
 		const mm = `${minutesLeft > 0 ? minutesLeft % 60 : 0}`.padStart(2, '0')
 		const hh = `${hoursLeft}`.padStart(2, '0')
-		return msLeft > 0 ? `${hh}:${mm}:${ss}` : '🎄🎉🎄🎉🎄'
+		return msLeft > 0 ? `${hh}:${mm}:${ss}` : 'NEW YEAR'
 	}
 
 	const targetTimeHere = 'January 1, 2020 00:00:00'
