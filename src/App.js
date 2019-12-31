@@ -21,18 +21,16 @@ const Container = styled.div`
 `
 
 const App = () => {
-	const [, setCounter] = useState(0)
+	const [now, setNow] = useState(+new Date())
 
 	useEffect(() => {
-		const timer = setInterval(() => setCounter(counter => counter + 1), 1000)
+		const timer = setInterval(() => setNow(+new Date()), 500)
 		return () => clearInterval(timer)
 	}, [])
 
 	const newYearHereMs = +new Date('January 1, 2020 00:00:00')
 
-	const nowMs = +new Date()
-
-	const msLeft = newYearHereMs - nowMs
+	const msLeft = newYearHereMs - now
 
 	const secondsLeft = Math.floor(msLeft / 1000)
 	const minutesLeft = Math.floor(secondsLeft / 60)
