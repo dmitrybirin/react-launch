@@ -30,32 +30,37 @@ const App = () => {
 		return () => clearInterval(timer)
 	}, [])
 
-	const targetTime = 'January 1, 2020 00:00:00'
+	const getTimeString = target => {
+		const targetTimeMs = +new Date(target)
 
-	const newYearHereMs = +new Date(targetTime)
+		const msLeft = targetTimeMs - now
+		const secondsLeft = Math.floor(msLeft / 1000)
+		const minutesLeft = Math.floor(secondsLeft / 60)
+		const hoursLeft = Math.floor(minutesLeft / 60)
 
-	const msLeft = newYearHereMs - now
+		const ss = `${secondsLeft % 60}`.padStart(2, '0')
+		const mm = `${minutesLeft % 60}`.padStart(2, '0')
+		const hh = `${hoursLeft}`.padStart(2, '0')
 
-	const secondsLeft = Math.floor(msLeft / 1000)
-	const minutesLeft = Math.floor(secondsLeft / 60)
-	const hoursLeft = Math.floor(minutesLeft / 60)
+		return `${hh}:${mm}:${ss}`
+	}
 
-	const ss = `${secondsLeft % 60}`.padStart(2, '0')
-	const mm = `${minutesLeft % 60}`.padStart(2, '0')
-	const hhHere = `${hoursLeft}`.padStart(2, '0')
-	const hhBarnaul = `${hoursLeft - 5}`.padStart(2, '0')
-	const hhMoscow = `${hoursLeft - 1}`.padStart(2, '0')
+	const targetTimeHere = 'January 1, 2020 00:00:00'
+
+	const targetTimeBar = 'December 31, 2019 19:00:00'
+
+	const targetTimeMos = 'December 31, 2019 23:00:00'
 
 	return (
 		<Container>
 			<Countdown>
-				<City>BAR</City> {`${hhBarnaul}:${mm}:${ss}`}
+				<City>BAR</City> {getTimeString(targetTimeBar)}
 			</Countdown>
 			<Countdown>
-				<City>MOS</City> {`${hhMoscow}:${mm}:${ss}`}
+				<City>MOS</City> {getTimeString(targetTimeMos)}
 			</Countdown>
 			<Countdown>
-				<City>HII</City> {`${hhHere}:${mm}:${ss}`}
+				<City>HII</City> {getTimeString(targetTimeHere)}
 			</Countdown>
 		</Container>
 	)
