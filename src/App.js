@@ -2,17 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { hot } from 'react-hot-loader'
 import styled from 'styled-components'
 
-const Countdown = styled.p`
+const Countdown = styled.div`
 	display: flex;
-	/* flex-direction: row; */
-	justify-content: space-between;
 	font-size: 15em;
-	font-family: 'Roboto';
+	font-family: 'Roboto Mono';
 	text-align: center;
 	margin: 0;
 	padding: 0;
-	min-width: 100%;
 `
+
+const City = styled.span`
+	color: lightcoral;
+`
+
 const Container = styled.div`
 	display: flex;
 	align-items: center;
@@ -28,7 +30,9 @@ const App = () => {
 		return () => clearInterval(timer)
 	}, [])
 
-	const newYearHereMs = +new Date('January 1, 2020 00:00:00')
+	const targetTime = 'January 1, 2020 00:00:00'
+
+	const newYearHereMs = +new Date(targetTime)
 
 	const msLeft = newYearHereMs - now
 
@@ -45,13 +49,13 @@ const App = () => {
 	return (
 		<Container>
 			<Countdown>
-				<span>BAR</span> {`${hhBarnaul}:${mm}:${ss}`}
+				<City>BAR</City> {`${hhBarnaul}:${mm}:${ss}`}
 			</Countdown>
 			<Countdown>
-				<span>MOS</span> {`${hhMoscow}:${mm}:${ss}`}
+				<City>MOS</City> {`${hhMoscow}:${mm}:${ss}`}
 			</Countdown>
 			<Countdown>
-				<span>HII</span> {`${hhHere}:${mm}:${ss}`}
+				<City>HII</City> {`${hhHere}:${mm}:${ss}`}
 			</Countdown>
 		</Container>
 	)
