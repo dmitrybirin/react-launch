@@ -1,29 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import { Clock } from 'grommet'
-import { hot } from 'react-hot-loader'
 import styled from 'styled-components'
-import { ReactLogo } from 'styled-icons/fa-brands'
 
 const Title = styled.h1`
-	font-size: 1.5em;
+	font-size: 30px;
 	text-align: center;
 	color: blue;
 `
 const SubTitle = styled.h3`
-	font-size: 0.8em;
+	font-size: 20px;
 	text-align: center;
 `
 const Counter = styled.p`
-	font-size: 15em;
+	font-size: 200px;
 	text-align: center;
 `
 const Container = styled.div`
+	height: 100vh;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-`
-const Logo = styled(ReactLogo)`
-	color: blue;
 `
 
 const App = () => {
@@ -36,13 +31,11 @@ const App = () => {
 
 	return (
 		<Container>
-			<Clock type="digital" />
 			<Title>This is styled Title!!</Title>
-			<Logo size={50} />
 			<SubTitle>Made with React</SubTitle>
 			<Counter>{counter}</Counter>
 		</Container>
 	)
 }
 
-export default hot(module)(App)
+export default App
