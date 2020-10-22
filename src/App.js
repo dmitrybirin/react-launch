@@ -21,19 +21,41 @@ const Container = styled.div`
 	flex-direction: column;
 `
 
-const App = () => {
-	const [counter, setCounter] = useState(0)
+const useFetch = (url, options) => {
+	const [result, setResult] = useState(null)
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(null)
+
+	const fetchUrl = () => {
+		fetch(url)
+			.then(res => res.json())
+			.then(setResult)
+			.catch(setError)
+			.finally(() => setLoading(false))
+	}
 
 	useEffect(() => {
-		const timer = setInterval(() => setCounter(counter => counter + 1), 1000)
-		return () => clearInterval(timer)
+		fetchUrl()
+		if (options?.polling) {
+			const interval = setInterval(fetchUrl, options?.polling)
+			return () => clearInterval(interval)
+		}
 	}, [])
+
+	return { result, loading, error }
+}
+
+const App = () => {
+	const { result, loading, error } = useFetch('https://swapi.dev/api/people/1/', {
+		polling: 3000,
+	})
 
 	return (
 		<Container>
 			<Title>This is styled Title!!</Title>
 			<SubTitle>Made with React</SubTitle>
-			<Counter>{counter}</Counter>
+			{error && <p>ERROR! </p>}
+			{loading ? <p>Loading..</p> : <Counter>{result.name}</Counter>}
 		</Container>
 	)
 }
